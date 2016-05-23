@@ -5,8 +5,8 @@ let geojsonArea = require('geojson-area');
 
 console.log('Loading data ...');
 
-let iris = require('./built/iris.json');
-let populations = require('./raw/iris-population.json');
+let iris = require('./filtered/iris-geography.json');
+let populations = require('./filtered/iris-population.json');
 
 console.log('Computing ...');
 
@@ -57,7 +57,7 @@ for (let i in computed) {
 
 console.log('Saving ...');
 
-fs.writeFileSync('./built/densities.json', JSON.stringify({
+fs.writeFileSync('./computed/densities.json', JSON.stringify({
     type: 'FeatureCollection',
     features: styled
 }));
