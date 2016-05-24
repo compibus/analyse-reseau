@@ -24,10 +24,7 @@ let parser = csv.parse({ delimiter: ',' }, (err, data) => {
                     .replace(/-$/, '');
             }
         } else {
-            if (
-                data[line][5] === '60159' // Compiègne
-                || data[line][5] === '60382' // Margny
-            ) {
+            if (data[line][5] === '60159') {  // Compiègne
                 let filteredLine = {};
 
                 for (let i in data[line]) {

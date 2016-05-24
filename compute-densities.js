@@ -57,7 +57,7 @@ for (let i in computed) {
 
 console.log('Saving ...');
 
-fs.writeFileSync('./computed/densities.json', JSON.stringify({
+fs.writeFileSync('./computed/iris-densities.json', JSON.stringify({
     type: 'FeatureCollection',
     features: styled
 }));

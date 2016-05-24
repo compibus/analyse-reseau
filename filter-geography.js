@@ -9,9 +9,7 @@ let raw = require('./raw/iris-geography.json');
 console.log('Filtering ...');
 
 let filterdFeatures = raw.features.filter((item) => {
-    return item.properties['TYP_IRIS'] === 'H' &&
-        (item.properties['NOM_COM'] === 'COMPIEGNE'
-        || item.properties['NOM_COM'] === 'MARGNY-LES-COMPIEGNE');
+    return item.properties['TYP_IRIS'] === 'H' && item.properties['NOM_COM'] === 'COMPIEGNE';
 });
 
 console.log('Saving ...');
