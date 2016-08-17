@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "csv": "^1.1.0",
-    "geojson-area": "^0.2.1"
+    "geojson-area": "^0.2.1",
+    "geojson-utils": "^1.1.0"
   }
 }
