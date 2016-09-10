@@ -1,10 +1,15 @@
 # Analyse du réseau de bus de Compiègne
 
-Ce proejt a pour objectif d'analyser le réseau de bus de Compiègne.
+L'objectif de ce projet est de déterminer la distance moyenne à vol d'oiseau de chaque habitant
+de Compiègne au plus proche arrêt de bus.
 
-L'objectif de ce projet est de déterminer les valeurs suivantes:
+## Utilisation
 
-- distance moyenne à vol d'oiseau de chaque habitant de Compiègne au plus proche arrêt de bus
-- durée moyenne d'accès à pied de chaque habitant de Compiègne au plus proche arrêt de bus
-- durée moyenne d'arrivée à la gare de Compiègne (à pied puis en bus)
-- durée maximale d'arrivée à la gare de Compiègne (à pied puis en bus)
+```
+npm install
+./run-all.sh
+```
+
+Ce script va générer plusieurs fichiers et finalement émettre le résultat dans `result/7-average-distance.json`.
+Au moment où ces lignes sont écrites, la distance moyenne à vol d'oiseau de chaque habitant de Compiègne au
+plus proche arrêt de bus est de **210,70** mètres.

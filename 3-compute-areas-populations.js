@@ -5,16 +5,16 @@ let geojsonArea = require('geojson-area');
 
 console.log('Loading data ...');
 
-let iris = require('./filtered/iris-geography.json');
-let populations = require('./filtered/iris-population.json');
+let geography = require('./built/1-filtered-geography.json');
+let populations = require('./built/2-filtered-population.json');
 
-console.log('Computing ...');
+console.log('Associating ...');
 
 let computed = [];
 let maxDensity = 0;
 
-for (let i in iris.features) {
-    let feature = iris.features[i];
+for (let i in geography.features) {
+    let feature = geography.features[i];
     let featurePopulation = null;
 
     for (let j in populations) {
@@ -31,7 +31,8 @@ for (let i in iris.features) {
 
     feature.properties['SURFACE_M2'] = geojsonArea.geometry(feature.geometry);
     feature.properties['SURFACE_KM2'] = feature.properties['SURFACE_M2'] / 1000000;
-    feature.properties['DENSITY'] = featurePopulation / feature.properties['SURFACE_KM2'];
+    feature.properties['POPULATION'] = parseInt(featurePopulation);
+    feature.properties['DENSITY'] = parseInt(featurePopulation) / feature.properties['SURFACE_KM2'];
 
     if (maxDensity < feature.properties['DENSITY']) {
         maxDensity = feature.properties['DENSITY'];
@@ -57,7 +58,7 @@ for (let i in computed) {
 
 console.log('Saving ...');
 
-fs.writeFileSync('./computed/iris-densities.json', JSON.stringify({
+fs.writeFileSync('./built/3-areas-populations.json', JSON.stringify({
     type: 'FeatureCollection',
     features: styled
 }));

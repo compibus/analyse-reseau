@@ -4,17 +4,17 @@ let fs = require('fs');
 
 console.log('Loading raw data ...');
 
-let raw = require('./raw/iris-geography.json');
+let raw = require('./data/iris-geography.json');
 
 console.log('Filtering ...');
 
-let filterdFeatures = raw.features.filter((item) => {
+let filtered = raw.features.filter((item) => {
     return item.properties['TYP_IRIS'] === 'H' && item.properties['NOM_COM'] === 'COMPIEGNE';
 });
 
 console.log('Saving ...');
 
-fs.writeFileSync('./filtered/iris-geography.json', JSON.stringify({
+fs.writeFileSync('./built/1-filtered-geography.json', JSON.stringify({
     type: 'FeatureCollection',
-    features: filterdFeatures
+    features: filtered
 }));

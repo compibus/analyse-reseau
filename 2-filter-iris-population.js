@@ -3,7 +3,7 @@
 let fs = require('fs');
 let csv = require('csv');
 
-console.log('Loading and parsing raw data ...');
+console.log('Loading raw data ...');
 
 let parser = csv.parse({ delimiter: ',' }, (err, data) => {
     console.log('Filtering ...');
@@ -38,7 +38,7 @@ let parser = csv.parse({ delimiter: ',' }, (err, data) => {
 
     console.log('Saving ...');
 
-    fs.writeFileSync('./filtered/iris-population.json', JSON.stringify(filtered));
+    fs.writeFileSync('./built/2-filtered-population.json', JSON.stringify(filtered));
 });
 
-fs.createReadStream('./raw/iris-population.csv').pipe(parser);
+fs.createReadStream('./data/iris-population.csv').pipe(parser);
