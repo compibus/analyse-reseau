@@ -7,13 +7,14 @@ let gju = require('geojson-utils');
 console.log('Loading data ...');
 
 let geography = require('./built/1-filtered-geography.json');
+let precision = require('./precision.json');
 
-console.log('Creating grid (lat: 49.3882 to 49.4369 step 0.001, lon: 2.7785 to 2.8664 step 0.001) ...');
+console.log('Creating grid (lat: 49.3882 to 49.4369 step '+precision.lat+', lon: 2.7785 to 2.8664 step '+precision.lon+') ...');
 
 let features = [];
 
-for (let lat = 49.3882; lat < 49.4369; lat += 0.001) {
-  for (let lon = 2.7785; lon < 2.8664; lon += 0.001) {
+for (let lat = 49.3882; lat < 49.4369; lat += precision.lat) {
+  for (let lon = 2.7785; lon < 2.8664; lon += precision.lon) {
     let point = {
       "type": "Point",
       "coordinates": [lon, lat]

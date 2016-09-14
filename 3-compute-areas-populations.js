@@ -12,6 +12,7 @@ console.log('Associating ...');
 
 let computed = [];
 let maxDensity = 0;
+let totalPopulation = 0;
 
 for (let i in geography.features) {
     let feature = geography.features[i];
@@ -28,6 +29,8 @@ for (let i in geography.features) {
         console.warn('Population not found for IRIS ' + feature.properties['NOM_IRIS']);
         continue;
     }
+
+    totalPopulation += parseInt(featurePopulation);
 
     feature.properties['SURFACE_M2'] = geojsonArea.geometry(feature.geometry);
     feature.properties['SURFACE_KM2'] = feature.properties['SURFACE_M2'] / 1000000;
@@ -56,6 +59,7 @@ for (let i in computed) {
     styled.push(feature);
 }
 
+console.log('Total population: '+totalPopulation);
 console.log('Saving ...');
 
 fs.writeFileSync('./built/3-areas-populations.json', JSON.stringify({

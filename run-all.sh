@@ -33,3 +33,8 @@ echo ""
 echo "Computing average distance result ..."
 echo "============================================================================"
 node 7-result-average-distance.js
+
+echo ""
+echo "Computing result uncertainty ..."
+echo "============================================================================"
+node 8-result-uncertainty.js

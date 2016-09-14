@@ -39,6 +39,5 @@ for (let i in grid.features) {
 }
 
 fs.writeFileSync('./result/7-average-distance.json', JSON.stringify({
-    name: 'Average distance between each inhabitant of Compiègne and the nearest bus station (in meters)',
     value:  sum / count
 }));
