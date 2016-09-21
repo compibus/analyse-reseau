@@ -32,7 +32,10 @@ for (let lat = 49.3882; lat < 49.4369; lat += precision.lat) {
     if (pointIsInZone) {
       features.push({
         "type": "Feature",
-        "properties": {},
+        "properties": {
+          "marker-color": "#7dbfff",
+          "marker-size": "small"
+        },
         "geometry": point
       });
     }
